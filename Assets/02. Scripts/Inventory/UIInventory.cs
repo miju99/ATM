@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,21 @@ public class UIInventory : MonoBehaviour
         {
             UISlot slots = Instantiate(slotPrefab, slotParent);
             itemSlots.Add(slots);
+        }
+    }
+
+    public void SetInventory(List<Item> inventory)
+    {
+        for (int i = 0; i < itemSlots.Count; i++)
+        {
+            if (i < inventory.Count)
+            {
+                itemSlots[i].SetItem(inventory[i]);
+            }
+            else
+            {
+                itemSlots[i].SetItem(null);
+            }
         }
     }
 }

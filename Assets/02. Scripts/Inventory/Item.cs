@@ -1,12 +1,17 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+[CreateAssetMenu(fileName = "NewItem", menuName = "InventoryItem")]
+public class Item : ScriptableObject
 {
+    [SerializeField]
     private string itemName; //필드
-
+    [SerializeField]
     private int attackPower;
+    [SerializeField]
     private int defensePower;
+    [SerializeField]
     private int hpPower;
+    [SerializeField]
     private int criticalPower;
 
     public string ItemName => itemName; //프로퍼티
