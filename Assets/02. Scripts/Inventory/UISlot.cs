@@ -10,7 +10,8 @@ public class UISlot : MonoBehaviour
 
     private Item item;
 
-    public GameObject Emotion;
+    public GameObject Emotion; //장착 표시
+    private static GameObject currentEmotion; //Emotion이 켜져있는 지 확인하는 변수
 
     /*[SerializeField]
     private TextMeshProUGUI itemnameText; //아이템 이름*/
@@ -23,10 +24,10 @@ public class UISlot : MonoBehaviour
     }
 
     private void OnClickEquip()
-    {
+    {        
         //InventoryGameManager.Instance.Player.Equip(item);
 
-        if(InventoryGameManager.Instance.Player.EquippedItem == item)
+        if (InventoryGameManager.Instance.Player.EquippedItem == item)
         {
             InventoryGameManager.Instance.Player.UnEquip();
         }
@@ -35,9 +36,16 @@ public class UISlot : MonoBehaviour
             InventoryGameManager.Instance.Player.Equip(item);
         }
 
-        if (Emotion != null)
+        if (Emotion != null) //중복 emotion을 막기 위해
         {
-            Emotion.SetActive(!Emotion.activeSelf);
+            if(currentEmotion != null && currentEmotion != Emotion)
+            {
+                currentEmotion.SetActive(false);
+            }
+            bool newActiveState = !Emotion.activeSelf;
+            Emotion.SetActive(newActiveState);
+
+            currentEmotion = newActiveState ? Emotion : null;
         }
     }
 

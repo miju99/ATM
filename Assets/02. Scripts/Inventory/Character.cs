@@ -57,6 +57,11 @@ public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
                 return;
             }
 
+            if(EquippedItem != null)
+            {
+                UnEquip(); //이전 장비가 있으면 해제 (스탯 누적 예방)
+            }
+
             EquippedItem = item; //아이템 장착
             ApplyItemStats(item);
 
