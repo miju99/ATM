@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
 {
@@ -52,15 +53,13 @@ public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
         {
             if(EquippedItem == item)
             {
-                Debug.Log("여기");
-                RemoveItemStats(EquippedItem);
-                EquippedItem = null;
+                UnEquip(); //같은 아이템이면 장비 해제
+                return;
             }
 
             EquippedItem = item; //아이템 장착
             ApplyItemStats(item);
 
-            //장착 효과 적용 ====================================================================================
             Debug.Log($"{item.ItemName} 아이템을 장착했습니당!");
 
             //InventoryGameManager.Instance.uiStatus.SetItemStats(item);
@@ -72,8 +71,11 @@ public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
     {
         if(EquippedItem != null) //장착중인 아이템이 있다면
         {
+            RemoveItemStats(EquippedItem);
             Debug.Log($"{EquippedItem.ItemName} 아이템을 해제했습니당!");
             EquippedItem = null; //장착 해제
+
+            InventoryGameManager.Instance.uiStatus.SetCharacterInfo(this);
         }
     }
 
