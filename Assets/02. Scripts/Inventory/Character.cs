@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
 {

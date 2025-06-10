@@ -17,3 +17,4 @@ MonoBehaviour:
   defensePower: 15
   hpPower: 2
   criticalPower: 3
+  icon: {fileID: 21300000, guid: 23238c8121fae614cb378b42459411ab, type: 3}

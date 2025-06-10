@@ -13,19 +13,26 @@ public class Item : ScriptableObject
     private int hpPower;
     [SerializeField]
     private int criticalPower;
+    [SerializeField]
+    private Sprite icon;
+
+    /*[SerializeField]
+    private Sprite icon;
+    public Sprite Icon => icon;*/
 
     public string ItemName => itemName; //프로퍼티
     public int AttackPower => attackPower;
     public int DefensePower => defensePower;
     public int HpPower => hpPower;
     public int CriticalPower => criticalPower;
+    public Sprite Icon => icon;
 
-    public Item(string itemName, int attackPower, int defensePower, int hpPower, int criticalPower) //생성자
+    /*public Item(string itemName, int attackPower, int defensePower, int hpPower, int criticalPower) //생성자
     {
         this.itemName = itemName;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
         this.hpPower = hpPower;
         this.criticalPower = criticalPower;
-    }
+    }*/
 }

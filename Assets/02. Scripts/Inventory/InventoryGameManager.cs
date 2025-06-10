@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InventoryGameManager : MonoBehaviour
 {
+    public static InventoryGameManager Instance {  get; private set; }
+
     [SerializeField]
     private Character character;
     [SerializeField]
@@ -20,6 +22,14 @@ public class InventoryGameManager : MonoBehaviour
     private Item shield;
 
     public Character Player { get; private set; } //Player 프로퍼티 (캐릭터 정보)
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
