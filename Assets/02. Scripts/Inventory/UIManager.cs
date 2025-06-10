@@ -2,11 +2,36 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject UIMainStatus; //메인 화면의 Status 버튼
-    public GameObject UIMainInventory; //메인 화면의 Inventory 버튼
+    public static UIManager Instance {  get; private set; } //싱글톤
 
-    public GameObject StatusPopUp; //Status 화면(캐릭터 정보) 팝업
-    public GameObject InventoryPopUp; //Inventory 화면 팝업
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    [SerializeField]
+    private UIMainMenu uiMainMenu;
+    [SerializeField]
+    private UIStatus uiStatus;
+    [SerializeField]
+    private UIInventory uiInventory;
+
+    public UIInventory Inventory => uiInventory; //접근자 (읽기만 가능)
+    public UIStatus Status => uiStatus;
+    public UIMainMenu MainMenu => uiMainMenu;
+
+    /*[SerializeField]
+    private GameObject UIMainStatus; //메인 화면의 Status 버튼
+    [SerializeField]
+    private GameObject UIMainInventory; //메인 화면의 Inventory 버튼
+
+    [SerializeField]
+    private GameObject StatusPopUp; //Status 화면(캐릭터 정보) 팝업
+    [SerializeField]
+    private GameObject InventoryPopUp; //Inventory 화면 팝업
 
     public void Status() //Status 버튼을 눌렀을 때 Status 화면으로 들어가도록
     {
@@ -38,5 +63,5 @@ public class UIManager : MonoBehaviour
         UIMainInventory.SetActive(true);
 
         InventoryPopUp.SetActive(false); //인벤토리 팝업을 끕니다.
-    }
+    }*/
 }
