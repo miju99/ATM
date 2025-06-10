@@ -50,9 +50,21 @@ public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
     {
         if(item != null && Inventory.Contains(item)) //아이템이 있고, 인벤토리 
         {
+            if(EquippedItem == item)
+            {
+                Debug.Log("여기");
+                RemoveItemStats(EquippedItem);
+                EquippedItem = null;
+            }
+
             EquippedItem = item; //아이템 장착
+            ApplyItemStats(item);
+
             //장착 효과 적용 ====================================================================================
             Debug.Log($"{item.ItemName} 아이템을 장착했습니당!");
+
+            //InventoryGameManager.Instance.uiStatus.SetItemStats(item);
+            InventoryGameManager.Instance.uiStatus.SetCharacterInfo(this);
         }
     }
 
@@ -60,8 +72,26 @@ public class Character : MonoBehaviour //캐릭터의 정보를 담고있는 스크립트
     {
         if(EquippedItem != null) //장착중인 아이템이 있다면
         {
-            EquippedItem = null; //장착 해제
             Debug.Log($"{EquippedItem.ItemName} 아이템을 해제했습니당!");
+            EquippedItem = null; //장착 해제
         }
+    }
+
+    private void ApplyItemStats(Item item)
+    {
+        Debug.Log("스탯 더하는 중");
+        attack += item.AttackPower;
+        defense += item.DefensePower;
+        health += item.HpPower;
+        critical += item.CriticalPower;
+    }
+
+    private void RemoveItemStats(Item item)
+    {
+        Debug.Log("스탯 빼는 중");
+        attack -= item.AttackPower;
+        defense -= item.DefensePower;
+        health -= item.HpPower;
+        critical -= item.CriticalPower;
     }
 }

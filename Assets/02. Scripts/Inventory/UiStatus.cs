@@ -31,4 +31,12 @@ public class UIStatus : MonoBehaviour
         HealthPercent.text = character.health.ToString();
         CriticalPercent.text = character.critical.ToString();
     }
+
+    /*public void SetItemStats(Item item)
+    {
+        AttackPercent.text = item.AttackPower.ToString();
+        DefensePercent.text = item.DefensePower.ToString();
+        HealthPercent.text = item.HpPower.ToString();
+        CriticalPercent.text = item.CriticalPower.ToString();
+    }*/
 }

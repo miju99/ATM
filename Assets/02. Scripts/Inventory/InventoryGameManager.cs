@@ -10,7 +10,7 @@ public class InventoryGameManager : MonoBehaviour
     [SerializeField]
     private UIMainMenu uiMainMenu;
     [SerializeField]
-    private UIStatus uiStatus;
+    public UIStatus uiStatus;
     [SerializeField]
     private UIInventory uiinventory;
 

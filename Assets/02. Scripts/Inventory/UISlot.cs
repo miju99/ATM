@@ -10,6 +10,8 @@ public class UISlot : MonoBehaviour
 
     private Item item;
 
+    public GameObject Emotion;
+
     /*[SerializeField]
     private TextMeshProUGUI itemnameText; //아이템 이름*/
 
@@ -22,7 +24,21 @@ public class UISlot : MonoBehaviour
 
     private void OnClickEquip()
     {
-        InventoryGameManager.Instance.Player.Equip(item);
+        //InventoryGameManager.Instance.Player.Equip(item);
+
+        if(InventoryGameManager.Instance.Player.EquippedItem == item)
+        {
+            InventoryGameManager.Instance.Player.UnEquip();
+        }
+        else
+        {
+            InventoryGameManager.Instance.Player.Equip(item);
+        }
+
+        if (Emotion != null)
+        {
+            Emotion.SetActive(!Emotion.activeSelf);
+        }
     }
 
     public void SetItem(Item item)
