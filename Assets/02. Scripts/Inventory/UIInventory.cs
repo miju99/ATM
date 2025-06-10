@@ -31,21 +31,21 @@ public class UIInventory : MonoBehaviour
 
     private void InitInventorySlot()
     {
-        Debug.Log("=== InitInventorySlot 호출됨 ===");
-        int slotCount = 11; //인벤토리 슬롯 창 11개 (프리팹 하나 있어서)
+        Debug.Log("InitInventorySlot 호출");
+        int slotCount = 11; //인벤토리 슬롯 창 11개 (프리팹 하나 있어서) => 프리팹 삭제
 
         for (int i = 0; i < slotCount; i++)
         {
             UISlot slots = Instantiate(slotPrefab, slotParent);
             itemSlots.Add(slots);
-            Debug.Log($"슬롯 {i} 생성됨");
+            Debug.Log($"슬롯 {i} 생성");
         }
         Debug.Log($"총 {itemSlots.Count}개 슬롯 생성 완료");
     }
 
     public void SetInventory(List<Item> inventory)
     {
-        Debug.Log($"=== SetInventory 호출됨! 아이템 개수: {inventory.Count} ===");
+        Debug.Log($"SetInventory 호출됨! 아이템 개수: {inventory.Count}");
         Debug.Log($"슬롯 개수: {itemSlots.Count}");
         for (int i = 0; i < itemSlots.Count; i++)
         {

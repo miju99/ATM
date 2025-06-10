@@ -24,7 +24,7 @@ public class UIStatus : MonoBehaviour
         });
     }
 
-    public void SetCharacterInfo(Character character)
+    public void SetCharacterInfo(Character character) //스테이터스 반영
     {
         AttackPercent.text = character.attack.ToString();
         DefensePercent.text = character.defense.ToString();
