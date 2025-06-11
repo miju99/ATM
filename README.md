@@ -4,11 +4,17 @@
 Unity 인벤토리 구현하기
 
 ## 영상
-- mainUI
-- status
-- inventory
+- MainUI <-> StatusUI / InventoryUI
+
+![Main](https://github.com/user-attachments/assets/fec886da-b0ff-48c9-9fc0-b089bef47aad)
+
 - 장착 및 해제
+
+![Equip](https://github.com/user-attachments/assets/f44aee5b-368b-450b-a61a-b397656245f4)
+
 - 스테이터스 반영
+
+![Status](https://github.com/user-attachments/assets/c8335f98-7690-4123-8cd3-85fe5dbf4221)
 
 ## 설치 방법
 `https://github.com/miju99/ATM.git`
